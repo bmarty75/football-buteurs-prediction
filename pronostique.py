@@ -77,21 +77,21 @@ df.replace([np.inf, -np.inf], np.nan, inplace=True)
 df.fillna(0, inplace=True)
 
 # Calcul des probabilités de marquer pour chaque joueur
-df['probabilite_buteur_%'] = (
+df['Score_perf_offensive'] = (
     df['xG_par_match'] * 0.4 + 
     df['ratio_buts_par_tir'] * 0.25 + 
     df['ratio_buts_par_match'] * 0.2 + 
     df['tirs_par_match'] * 0.15
-) / 1.5 * 100
+)
 
 # Classement avancé des buteurs
 classement_avance = df.sort_values(
-    by=['probabilite_buteur_%', 'xG_par_match', 'xG', 'ratio_buts_par_tir', 'ratio_buts_par_match', 'tirs_par_match', 'Gls'], 
+    by=['Score_perf_offensive', 'xG_par_match', 'xG', 'ratio_buts_par_tir', 'ratio_buts_par_match', 'tirs_par_match', 'Gls'], 
     ascending=False
 )
 
 # Formatage des colonnes numériques
-columns_to_format = ['probabilite_buteur_%', 'xG_par_match', 'ratio_buts_par_tir', 'ratio_buts_par_match', 'tirs_par_match']
+columns_to_format = ['Score_perf_offensive', 'xG_par_match', 'ratio_buts_par_tir', 'ratio_buts_par_match', 'tirs_par_match']
 
 # Créer une copie pour l'affichage avec les valeurs formatées
 df_display = classement_avance.copy()
@@ -106,7 +106,7 @@ for col in columns_to_format:
 st.subheader(f"Top {nombre_joueurs} des buteurs les plus probables")
 
 # Sélection des colonnes à afficher
-colonnes_a_afficher = ['Player', 'Gls','MP', 'xG_par_match', 'probabilite_buteur_%','xG','ratio_buts_par_tir', 'ratio_buts_par_match', 'tirs_par_match']
+colonnes_a_afficher = ['Player', 'Gls','MP', 'xG_par_match', 'Score_perf_offensive','xG','ratio_buts_par_tir', 'ratio_buts_par_match', 'tirs_par_match']
 
 # Vérifier que les colonnes existent
 colonnes_disponibles = [col for col in colonnes_a_afficher if col in df_display.columns]
