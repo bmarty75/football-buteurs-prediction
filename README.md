@@ -1,6 +1,7 @@
 # 🏆 Pronostic des Buteurs de Football
 
 Application Streamlit pour analyser et prédire les performances des buteurs en football.
+https://prono-foot-stricker.streamlit.app/
 
 ## Fonctionnalités
 
