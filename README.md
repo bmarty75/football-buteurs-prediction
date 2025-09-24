@@ -11,6 +11,14 @@ Application Streamlit pour analyser et prédire les performances des buteurs en 
 ## Installation
 
 1. Cloner le repository :
-```bash
+2. bash
 git clone https://github.com/votre-username/nom-du-repo.git
 cd nom-du-repo
+
+3. Installer les dépendances :
+bash
+pip install -r requirements.txt
+
+4. Lancer l'application :
+bash
+streamlit run pronostique.py
